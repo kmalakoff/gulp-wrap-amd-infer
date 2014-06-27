@@ -12,7 +12,6 @@
     "coffee-script": "*",
     "event-stream": "*",
     "underscore": "*",
-    "gulp-utils": "*",
     "gulp-compile-js": "*"
   }
 }
