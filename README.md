@@ -1,7 +1,7 @@
 gulp-wrap-amd-infer
 ==================
 
-Gulp plugin to create a file stream of required sources
+Gulp plugin to automatically wrap and optionally compile files for testing AMD
 
 ```
 gulp = require 'gulp'
