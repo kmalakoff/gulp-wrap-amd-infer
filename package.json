@@ -1,6 +1,6 @@
 {
   "name": "gulp-wrap-amd-infer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Gulp plugin to automatically wrap and optionally compile files for testing AMD",
   "keywords": ["gulpplugin", "wrap", "amd", "karma"],
   "main": "index.coffee",
@@ -11,7 +11,6 @@
   "dependencies": {
     "coffee-script": "*",
     "event-stream": "*",
-    "underscore": "*",
-    "gulp-compile-js": "*"
+    "underscore": "*"
   }
 }

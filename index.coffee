@@ -5,7 +5,6 @@ es = require 'event-stream'
 
 gulp = require 'gulp'
 File = require('gulp-util').File
-compile = require 'gulp-compile-js'
 
 extractAMDOptions = (options) ->
   files = options.files or []
@@ -31,7 +30,6 @@ module.exports = (options={}) ->
     amd_options = extractAMDOptions(options)
 
     es.readArray([file])
-      .pipe(compile({coffee: {bare: true}}))
       .pipe es.map (file, wrap_callback) ->
         file.pipe toText (text) ->
           contents = """
