@@ -14,7 +14,7 @@ extractAMDOptions = (options) ->
   for file in files
     name = file.split('/').pop()
     name = options.name(name) if options.name
-    name = name.replace('.js', '')
+    name = name.replace('.js', '').replace('.min', '').replace('-min', '')
     amd_options.paths[name] = path.join(options.base or '/base', file.replace('.js', ''))
 
   amd_options.shim[key] = value for key, value of shims when amd_options.paths.hasOwnProperty(key)
