@@ -1,16 +1,27 @@
 {
   "name": "gulp-wrap-amd-infer",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Gulp plugin to automatically wrap and optionally compile files for testing AMD",
-  "keywords": ["gulpplugin", "wrap", "amd", "karma"],
+  "keywords": [
+    "gulpplugin",
+    "wrap",
+    "amd",
+    "karma"
+  ],
   "main": "index.coffee",
   "license": "MIT",
   "author": "Kevin Malakoff (https://github.com/kmalakoff)",
-  "repository": {"type": "git", "url": "https://github.com/kmalakoff/gulp-wrap-amd-infer.git"},
-  "engines": {"node": ">=0.8.0"},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmalakoff/gulp-wrap-amd-infer.git"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
   "dependencies": {
     "coffee-script": "*",
     "event-stream": "*",
+    "semver": "^2.3.1",
     "underscore": "*"
   }
 }

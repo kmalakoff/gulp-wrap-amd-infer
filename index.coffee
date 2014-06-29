@@ -2,6 +2,7 @@ path = require 'path'
 fs = require 'fs'
 _ = require 'underscore'
 es = require 'event-stream'
+semver = require 'semver'
 
 gulp = require 'gulp'
 File = require('gulp-util').File
@@ -14,6 +15,7 @@ extractAMDOptions = (options) ->
   for file in files
     name = file.split('/').pop()
     name = name.replace('.js', '').replace('.min', '').replace('-min', '')
+    name = name.split('-').slice(0, -1).join('-') if semver.valid(name.split('-').slice(-1)[0]) # remove semver
     name = options.name(name) if options.name
     amd_options.paths[name] = path.join(options.base or '/base', file.replace('.js', ''))
 
