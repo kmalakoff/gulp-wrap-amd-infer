@@ -1,6 +1,6 @@
 {
   "name": "gulp-wrap-amd-infer",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Gulp plugin to automatically wrap and optionally compile files for testing AMD",
   "keywords": [
     "gulpplugin",

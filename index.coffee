@@ -8,12 +8,12 @@ gulp = require 'gulp'
 File = require('gulp-util').File
 
 extractAMDOptions = (options) ->
-  files = options.files or []
+  path_files = options.path_files or []
   shims = options.shims or {}
   aliases = options.aliases or {}
   amd_options = {paths: {}, shim:{}}
 
-  for file in files
+  for file in path_files
     name = file.split('/').pop()
     name = name.replace('.js', '').replace('.min', '').replace('-min', '')
     name = name.split('-').slice(0, -1).join('-') if semver.valid(name.split('-').slice(-1)[0]) # remove semver
