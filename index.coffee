@@ -32,17 +32,19 @@ toText = (callback) ->
 module.exports = (options={}) ->
   es.map((file, callback) ->
     amd_options = extractAMDOptions(options)
+    params = (key.replace(/-/g, '_') for key in _.keys(amd_options.paths))
 
     es.readArray([file])
       .pipe es.map (file, wrap_callback) ->
         file.pipe toText (text) ->
+
           contents = """
             (function() {
               #{'var _start = window.__karma__.start, _config; window.__karma__.start = function(config) { _config = config; };' if options.karma}
 
               require.config(#{JSON.stringify(amd_options,null,2)});
 
-              require(#{JSON.stringify(_.keys(amd_options.paths))}, function(){
+              require(#{JSON.stringify(_.keys(amd_options.paths))}, function(#{params.join(', ')}){
                 #{options.post_load or ''}
                 #{text}
 
