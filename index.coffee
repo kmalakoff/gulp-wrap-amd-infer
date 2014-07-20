@@ -32,7 +32,7 @@ toText = (callback) ->
 module.exports = (options={}) ->
   es.map((file, callback) ->
     amd_options = extractAMDOptions(options)
-    params = (key.replace(/-/g, '_') for key in _.keys(amd_options.paths))
+    params = (key.replace(/([^a-z0-9]+)/gi, '_') for key in _.keys(amd_options.paths))
 
     es.readArray([file])
       .pipe es.map (file, wrap_callback) ->
