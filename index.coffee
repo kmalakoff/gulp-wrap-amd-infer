@@ -14,8 +14,8 @@ extractAMDOptions = (options) ->
   amd_options = {paths: {}, shim:{}}
 
   for file in path_files
-    name = file.split('/').pop()
-    name = name.replace('.js', '').replace('.min', '').replace('-min', '')
+    name = file.replace(/.js$|.coffee$/, '').replace(/.min$|-min$/, '').replace(/\/index$/, '')
+    name = name.split('/').pop()
     name = name.split('-').slice(0, -1).join('-') if semver.valid(name.split('-').slice(-1)[0]) # remove semver
     name = aliases[name] if aliases.hasOwnProperty(name)
     name = options.name(name) if options.name
